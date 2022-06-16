@@ -1,0 +1,25 @@
+﻿@using SaleOfNail.Data.Models;
+@model string
+@{
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8" />
+    <title>Реєстрація</title>
+    <link href="https://localhost:44358/Styles/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<header class="header_class">
+    <img src="~/Img/SaleOfNail.png" height="50" alt="Фото відсутне">
+</header>
+<body style="min-height: 90%;">
+    <form method="post" action="https://localhost:44358/Client/writeInBd" id="For registration">
+        <label for="Your name">Ім'я користувача(електронна пошта, до 320 символів):</label><br> <input type="text" id="Your name" name="user_name"><br>
+        <label for="Your password">Пароль користувача(від 5 до 20 символів):</label><br> <input type="text" id="Your password" name="user_password"><br>
+        <label for="Your telephone">Ваш телефон:</label><br> <input type="text" id="Your telephone" name="user_telephone"><br>
+        <button type="submit" form="For registration" value="Submit">Зайти</button><br>
+    </form>
+    <span style="font-size:10px;color:red;">@Model</span>
+</body>
+<footer>
+    роботу виконав Марков Тарас
+</footer>

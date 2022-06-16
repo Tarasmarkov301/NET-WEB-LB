@@ -1,0 +1,28 @@
+* {
+margin: 0;
+padding: 0;
+}
+.bogy_class {
+    overflow-y: scroll;
+    min-height: 90%;
+}
+.header_class{
+border: 2px solid #443020;
+background:#f9f4e6
+}
+.col-1-3horisontal {
+display: inline-block;
+width: 90%;
+background:#f1d881;
+min-height: 30%;
+margin: 3% 5%;
+
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #443020;
+    width: 100%;
+}

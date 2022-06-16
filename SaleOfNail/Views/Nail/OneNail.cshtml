@@ -1,0 +1,41 @@
+﻿@using SaleOfNail.Data.Models;
+@model OneNailAndClient
+@{
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.nail.name</title>
+    <link href="https://localhost:44358/Styles/nail.css" rel="stylesheet" type="text/css" />
+</head>
+<header class="header_class">
+    <img src="~/Img/SaleOfNail.png" height="50" alt="Фото відсутне">
+    @{
+        if (Model.name != "")
+        {
+            <div class ="go_home" >
+                <form action="https://localhost:44358/Client/List" method="post">
+                    <input class ="go_home" type="submit" name="name" value="@Model.name">
+                </form>
+            </div>
+        }
+    }
+</header>
+<body class="bogy_class">
+    <div class="col-2-5img">
+        <img class="image" src="~/Img/@Model.nail.foto" alt="Фото відсутне">
+    </div>
+    <div class="col-3-5right">
+        <div style="font-size: 72px">@Model.nail.name</div>
+          @Model.nail.description
+        <br><div style="float: right;">
+            Цiна: @Model.nail.price<br>
+            <form method="get" action="https://localhost:44358/Client/writeSaleInBD" id="For registration or enter">
+                <button class="butt" type="submit" form="For registration or enter" name ="numberOfNail" value="@Model.nail.number">Замовити</button>
+            </form>
+        </div>
+    </div>
+</body>
+<footer>
+    <span>роботу виконав Марков Тарас</span>
+</footer>

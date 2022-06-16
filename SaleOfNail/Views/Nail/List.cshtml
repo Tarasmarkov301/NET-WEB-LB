@@ -1,0 +1,60 @@
+﻿@using SaleOfNail.Data.Models;
+@model  NailAndClient
+@{
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8" />
+    <title>Головна сторінка</title>
+    <link href="https://localhost:44358/Styles/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<header class="header_class">
+    <img src="~/Img/SaleOfNail.png" height="50" alt="Фото відсутне">
+    @{
+        if (Model.name != "") {
+            <div class ="go_home"><form action="https://localhost:44358/Client/List"  method="post">
+             <input class ="go_home" type="submit" name="name" value="@Model.name">
+</form></div>
+        }
+    }
+</header>
+<body class="bogy_class">
+    <div class="col-1-5left">
+            <form action="https://localhost:44358/Nail/findNail" method="get" id="For find">
+                <label for="name of nail">Назва цвяху:</label><br> <input type="text" id="name of nail" name="name"><br>
+                <label for="price of nail">Максимальна ціна:</label><br> <input type="range" name="maxPrice" id="price of nail" min="0" max="1500" step="5" oninput="this.nextElementSibling.value = this.value">
+                <output>750</output><br>
+                <button type="submit" form="For find" value="Submit">Знайти</button>
+            </form>
+    </div>
+                <div class="col-3-5">
+                    @foreach (var nail in Model.nails) {
+
+                    <div class="col-1-5img">
+                        <img class="image" src="~/Img/@nail.foto" alt="Фото відсутне"><br>
+                        <label>@nail.name</label>
+                        <br>
+                        <label>Ціна: @nail.price</label><br>
+                        <form action="https://localhost:44358/Nail/oneNail" method="get" id="For one">
+                        <button type="submit" name ="id" form="For one" value="@nail.number">Докладніше</button>
+                        </form>
+                    </div>
+                    
+                    }
+
+                            
+                        </div>
+                <div class="col-1-5right">
+                    <form method="post" action="https://localhost:44358/Nail/enter" id="For enter">
+                        <label for="Your name">Ім'я користувача:</label><br> <input type="text" id="Your name" name="user_name"><br>
+                        <label for="Your password">Пароль користувача:</label><br> <input type="password" id="Your password" name="user_password"><br>
+                        <button type="submit" form="For enter" value="Submit">Зайти</button><br>
+                    </form>
+                    <form method="post" action="https://localhost:44358/Client/registration" id="For registration">
+                        <button type="submit" form="For registration" value="Submit">Заеруструватися</button>
+                    </form>
+              </div>
+</body>
+<footer>
+    <span>роботу виконав Марков Тарас</span>
+</footer>
